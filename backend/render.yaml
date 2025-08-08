@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: landlordy-api
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+    autoDeploy: false
+  - type: pserv
+    name: landlordy-postgres
+    env: postgresql
+    plan: starter
+    ipAllowList: []
